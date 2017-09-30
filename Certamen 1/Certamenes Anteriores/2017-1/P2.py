@@ -66,4 +66,4 @@ def pregunta1():
 pregunta1()
 
 # Ayudantías Programación de Computadores IWI-131 UTFSM 2017
-# Desarrollado por Gonzalo Fernández bajo licencia MIT
+# Desarrollado por Gonzalo Fernández (@DevTotal) bajo licencia MIT

@@ -84,4 +84,4 @@ def pregunta1():	# Definimos la función que resolverá nuestro problema
 pregunta1()	# Llamamos a la función que declaramos anteriormente
 
 # Ayudantías Programación de Computadores IWI-131 UTFSM 2017
-# Desarrollado por Gonzalo Fernández bajo licencia MIT
+# Desarrollado por Gonzalo Fernández (@DevTotal) bajo licencia MIT

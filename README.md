@@ -1,11 +1,28 @@
-# AyudantiasPrograUTFSM
+# Ayudantías Programación (IWI - 131) UTFSM
 
-Repositorio con material para el ramo Programación de Computadores IWI-131 de la Universidad Técnica Federico Santa María.
+Este repositorio fue desarrollado con la idea de poder facilitar material de estudio para el ramo de **Programación**.
 
-Cualquier corrección, duda, sugerencia, etc... Por favor háganmela saber a mi correo gonzalo.fernandezc@sansano.usm.cl, para así hacer de este repositorio una mejor herramienta para todos.
+Su mantención está a cargo del ayudante **Gonzalo Fernández** - gonzalo.fernandezc@sansano.usm.cl, cualquier sugerencia, consulta, aporte, etc, por favor no dudes en escribirme y trataré de responder a la brevedad posible.
 
-Este repositorio es un tanto nuevo, de a poco iré llenándolo con más contenido para los certámenes, si necesitan algo más completo, pueden visitar el repositorio de Camilo Saldías
-https://github.com/csaldias/python-usm 
+# Organización del Material
 
+Las **PPTs** de las ayudantías estarán en la carpeta principal del repositorio, mientras que el resto del material se dividirá en 5 carpetas principales:
 
+  - Actividades en Equipo
+  - Laboratorios
+  - Certamen 1
+  - Certamen 2
+  - Certamen 3
 
+Cada una de estas a su vez se dividirá en las carpetas:
+
+  - Ejercicios
+  - Soluciones
+
+Donde en **Ejercicios** habrán ejercicios propuestos y en **Soluciones**, las soluciones de los mismos, entre otros ejercicios (por ejemplo, de las mismas **PPTs** de ayudantía), estas estarán con y sin comentarios para comodidad del estudiante.
+
+# To-Do List
+
+  - Importar material a **LaTeX**, ó, **MarkDown**, de modo de permitir edición de tercerosm, actualmente uso **Word** por un tema de tiempo.
+  - Agregar más material (este repositorio comenzó hace muy poco, por lo que no he tenido mucho tiempo para rellenarlo).
+  - Kaizen

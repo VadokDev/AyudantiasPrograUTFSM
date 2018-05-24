@@ -1,0 +1,272 @@
+\documentclass{article}
+
+\usepackage{fancyhdr}
+\usepackage{extramarks}
+\usepackage{amsmath}
+\usepackage{amsthm}
+\usepackage{amsfonts}
+\usepackage{tikz}
+\usepackage[plain]{algorithm}
+\usepackage{algpseudocode}
+\usepackage{minted}
+\usepackage[spanish]{babel}
+\usepackage[utf8]{inputenc} %Codificacion utf-8
+\usepackage{caption}
+\usepackage{graphicx} 
+
+\usetikzlibrary{automata,positioning}
+
+%
+% Basic Document Settings
+%
+
+\topmargin=-0.45in
+\evensidemargin=0in
+\oddsidemargin=0in
+\textwidth=6.5in
+\textheight=9.0in
+\headsep=0.25in
+
+\linespread{1.1}
+
+\pagestyle{fancy}
+\lhead{\hmwkAuthorName}
+\chead{\hmwkTitle}
+\rhead{\firstxmark}
+\lfoot{\lastxmark}
+\cfoot{\thepage}
+
+\renewcommand\headrulewidth{0.4pt}
+\renewcommand\footrulewidth{0.4pt}
+
+\setlength\parindent{0pt}
+
+%
+% Create Problem Sections
+%
+
+\newcommand{\enterProblemHeader}[1]{
+    \nobreak\extramarks{}{El problema \arabic{#1} continúa en la siguiente página\ldots}\nobreak{}
+    \nobreak\extramarks{Problema \arabic{#1}}{El problema \arabic{#1} continúa en la siguiente página\ldots}\nobreak{}
+}
+
+\newcommand{\exitProblemHeader}[1]{
+    \nobreak\extramarks{Problema \arabic{#1}}{El problema \arabic{#1} continúa en la siguiente página\ldots}\nobreak{}
+    \stepcounter{#1}
+    \nobreak\extramarks{Problema \arabic{#1}}{}\nobreak{}
+}
+
+\setcounter{secnumdepth}{0}
+\newcounter{partCounter}
+\newcounter{homeworkProblemCounter}
+\setcounter{homeworkProblemCounter}{1}
+\nobreak\extramarks{Problema \arabic{homeworkProblemCounter}}{}\nobreak{}
+
+%
+% Homework Problema Environment
+%
+% This environment takes an optional argument. When given, it will adjust the
+% Problema counter. This is useful for when the problems given for your
+% assignment aren't sequential. See the last 3 problems of this template for an
+% example.
+%
+\newenvironment{homeworkProblem}[2][-1]{
+    \ifnum#1>0
+        \setcounter{homeworkProblemCounter}{#1}
+    \fi
+    \section{Problema \arabic{homeworkProblemCounter} -- #2}
+    \setcounter{partCounter}{1}
+    \enterProblemHeader{homeworkProblemCounter}
+}{
+    \exitProblemHeader{homeworkProblemCounter}
+}
+
+%
+% Homework Details
+%   - Title
+%   - Due date
+%   - Class
+%   - Section/Time
+%   - Instructor
+%   - Author
+%
+
+\newcommand{\hmwkTitle}{Guía 2 -- Preparación Certamen 1}
+\newcommand{\hmwkDueDate}{31/01/2018}
+\newcommand{\hmwkClass}{Programaci\'on de Computadores}
+\newcommand{\hmwkClassTime}{}
+\newcommand{\hmwkClassInstructor}{}
+\newcommand{\hmwkAuthorName}{\textbf{Gonzalo Fern\'andez C.}}
+
+%
+% Title Page
+%
+
+\title{
+    \vspace{2in}
+    \textmd{\textbf{\hmwkClass \\ \hmwkTitle}}\\
+    \vspace{0.1in}\large{\textit{\hmwkClassInstructor\ \hmwkClassTime}}
+    \vspace{3in}
+}
+
+
+\author{\hmwkAuthorName \\ \texttt{gonzalo.fernandezc@sansano.usm.cl}}
+\date{\hmwkDueDate}
+
+\renewcommand{\part}[1]{\textbf{\large Sub-Problema \arabic{partCounter}}\stepcounter{partCounter}\\}
+
+%
+% Various Helper Commands
+%
+
+% Useful for algorithms
+\newcommand{\alg}[1]{\textsc{\bfseries \footnotesize #1}}
+
+% For derivatives
+\newcommand{\deriv}[1]{\frac{\mathrm{d}}{\mathrm{d}x} (#1)}
+
+% For partial derivatives
+\newcommand{\pderiv}[2]{\frac{\partial}{\partial #1} (#2)}
+
+% Integral dx
+\newcommand{\dx}{\mathrm{d}x}
+
+% Alias for the Solution section header
+\newcommand{\solution}{\textbf{\large Solución}}
+
+% Probability commands: Expectation, Variance, Covariance, Bias
+\newcommand{\E}{\mathrm{E}}
+\newcommand{\Var}{\mathrm{Var}}
+\newcommand{\Cov}{\mathrm{Cov}}
+\newcommand{\Bias}{\mathrm{Bias}}
+
+\begin{document}
+
+\begin{titlepage}
+
+\begin{figure}
+\includegraphics[width=0.4\linewidth]{logou} 
+\hfill
+\includegraphics[width=0.4\linewidth]{logodi} 
+\end{figure}
+
+\maketitle
+
+\thispagestyle{empty}
+\end{titlepage}
+
+\begin{homeworkProblem} {MiniDiagramas}
+
+    Jacinto est\'a estudiando programaci\'on, pero se complica mucho al momento de resolver los problemas que aparecen en sus evaluaciones. Cada vez que lee un enunciado, se imagina todos los pasos necesarios para poder resolverlo, pero a la hora de realizar el diagrama de flujo que resolverá el problema, se complica demasiado. Jacinto escuch\'o que est\'as tomando el curso \textit{Programaci\'on de Computadores} -- \textit{IWI-131} y por lo mismo, te pidi\'o que le ayudes resolviendo algunos problemas:\\
+
+    \begin{enumerate}
+
+        \item \textmd{Realiza un Diagrama de Flujo que reciba un número e indique si este es par o no.}
+
+        \item \textmd{Realiza un Diagrama de Flujo que reciba la base y la altura de un triángulo y calcule su área.}
+
+        \item \textmd{Realiza un Diagrama de Flujo que luego de pedir un número \texttt{X}, luego, continúe pidiendo números hasta que la suma de estos (partiendo desde 0) sea igual o mayor a \texttt{X}.}
+
+        \item \textmd{Realiza un Diagrama de Flujo que lea números hasta ingresar un 0 y muestre en pantalla cual fue el mayor y el menor de esos números.}
+
+        \item \textmd{Realiza un Diagrama de Flujo que lea números hasta ingresar un \texttt{palíndromo}.}
+
+    \end{enumerate}
+
+    \part\\
+
+    El profesor de Jacinto ofreció un premio a todos aquellos que además de resolver los problemas con diagramas de flujo, entreguen el \texttt{Código Python} correspondiente a la solución de cada uno de estos.\\
+
+    \solution
+
+\end{homeworkProblem}
+
+\pagebreak
+
+\begin{homeworkProblem} {McDonald's}
+
+    Cierto día llegó el \texttt{VicePresidente Ejecutivo de McDonald's}, con una interesante solicitud, diseñar la lógica de uno de sus cajeros automáticos, dado que todos están de vacaciones, te tocó realizar este trabajo a ti.\\
+
+    La idea es la siguiente, el cliente podría pedir entre \texttt{papas fritas, bebidas y hambuerguesas}, además, estos traían ciertos descuentos en caso de hacer ciertas combinaciones, por cada \texttt{bebida y hamburguesa} compradas juntas, se realiza un descuento de \$100 pesos en el precio final, del mismo modo, por cada \texttt{bebida y papas fritas} que el cliente compra, se realiza un descuento de \$200 en el precio final, si el cliente compra \texttt{papas fritas y hamburguesas}, en caso de luego comprar una \texttt{bebida}, esta tendrá un descuento del 50\%.\\
+
+    Los precios son los siguientes:
+
+    \begin{center}
+    \begin{table}[!htb]
+    \centering
+    \begin{tabular}{|l|l|} \hline
+    \texttt{Papas Fritas} & \$1.000 \\
+    \texttt{Bebida} & \$5.000  \\
+    \texttt{Hamburguesa} & \$2.000 \\ \hline
+    \end{tabular}
+    \caption*{Tabla 1. Precio por Producto}
+    \end{table}
+    \end{center}
+
+    El cliente puede pedir productos hasta que ingrese la palabra \texttt{alto}, pero, los descuentos se aplican \textbf{en el orden en que va pidiendo}. Cuando el cliente deja de pedir, es necesario mostrarle un detalle de todo lo que pidió y el total de su pedido deacuerdo al siguiente ejemplo:\\
+
+    \begin{center}
+    \begin{table}[!htb]
+    \centering
+    \begin{tabular}{|c|l|l|} \hline
+    Cantidad & Producto & Total \\ \hline
+    5 & \texttt{Papas Fritas} & \$5.000 \\
+    5 & \texttt{Bebida} & \$5.000  \\
+    3 & \texttt{Hamburguesa} & \$3.000 \\ \hline
+    & Descuentos & \$1.000 \\
+    & Total Final: & \$7.000\\ \hline
+    \end{tabular}
+    \caption*{Tabla 2. Ejemplo de Detalle de Compra}
+    \end{table}
+    \end{center}
+
+    Realiza un Diagrama de Flujo y un Código Python que realicen la solicitud del VicePresidente Ejecutivo de McDonald's.\\
+
+    \solution
+
+\end{homeworkProblem}
+
+\pagebreak
+
+\begin{homeworkProblem} {PyTube}
+    La famosa plataforma de videos \texttt{PyTube} contrató una enorma cantidad de filósofos, humanistas, raperos y un matemático para realizar un estúdio acerca de cómo aumentar la cantidad de tiempo que invierte una persona interactuando con su plataforma con la finalidad de aumentar la distribución de anuncios y así monetizar más aún sus visitas.\\
+
+    Luego de años de investigación y muchos despidos, el matemático descubrió que mientras mayor sea el \texttt{rango} del conjunto de visitas de los videos de la plataforma, mayor es el tiempo que una persona invertirá interactuando con esta.\\
+
+    En estadística descriptiva, se define el rango de un conjunto de datos reales como la diferencia entre el mayor y el menor de los datos, por ejemplo, para el conjunto de datos: \texttt{[5.96, 6.74, 7.43, 4.99, 7.20, 0.56, 2.80]}, el rango sería: \texttt{7.43 - 0.56 = 6.87}.\\
+
+    Dado que la plataforma \texttt{PyTube} tiene tantos videos, te contrataron a ti para realizar un programa con el cual los administradores de \texttt{PyTube} puedan ingresar las visitas de cada video y así averiguar el rango de las visitas de su plataforma en cualquier momento.\\
+
+    Realiza un Diagrama de Flujo y un Código Python que permitan resolver este problema.\\
+
+    \solution
+
+\end{homeworkProblem}
+
+\pagebreak
+
+\begin{homeworkProblem} {Nombres}
+    Eleusterio tiene una extraña manía, le gusta saber muchas cosas acerca de la gente con la que trabaja, siempre está indagando acerca de ellos al punto de volverse incómodo para uno trabajar con él.\\
+
+    El día de hoy ha conseguido una lista con los nombres de todos sus compañeros (sólamente el primer nombre), el está muy emocionado porque quiere usar esto para averiguar ciertas cosas sobre los nombres de cada uno, pero tiene un problema, es tan larga la lista de nombres que tiene que no puede extraer información general de todos manualmente, es por esto que ha recurrido a ti.\\
+
+    Realiza un programa en Python que permita a Eleusterio ingresar todos los nombres de la lista hasta escribir \texttt{fin}, cuando deje de ingresar nombres, debes mostrar en pantalla:
+
+    \begin{enumerate}
+    \item Nombre más largo.
+    \item Nombre más corto.
+    \item Nombre con más vocales.
+    \item Nombre con más consonantes.
+    \end{enumerate}
+
+    \part\\
+
+    A Eleusterio le gustan también los Diagramas de Flujo, por lo tanto, te pidió que una vez terminado el Código en Python, realices para él un Diagrama de Flujo acerca de tu programa.\\
+
+    \solution
+
+\end{homeworkProblem}
+
+\pagebreak
+
+\end{document}

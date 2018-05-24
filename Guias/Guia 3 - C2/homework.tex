@@ -1,0 +1,227 @@
+\documentclass{article}
+
+\usepackage{fancyhdr}
+\usepackage{extramarks}
+\usepackage{amsmath}
+\usepackage{amsthm}
+\usepackage{amsfonts}
+\usepackage{tikz}
+\usepackage[plain]{algorithm}
+\usepackage{algpseudocode}
+\usepackage[spanish]{babel}
+\usepackage[utf8]{inputenc} %Codificacion utf-8
+\usepackage{caption}
+\usepackage{graphicx} 
+\usepackage{bold-extra}
+
+\usetikzlibrary{automata,positioning}
+
+%
+% Basic Document Settings
+%
+
+\topmargin=-0.45in
+\evensidemargin=0in
+\oddsidemargin=0in
+\textwidth=6.5in
+\textheight=9.0in
+\headsep=0.25in
+
+\linespread{1.1}
+
+\pagestyle{fancy}
+\lhead{\hmwkAuthorName}
+\chead{\hmwkTitle}
+\rhead{\firstxmark}
+\lfoot{\lastxmark}
+\cfoot{\thepage}
+
+\renewcommand\headrulewidth{0.4pt}
+\renewcommand\footrulewidth{0.4pt}
+
+\setlength\parindent{0pt}
+
+%
+% Create Problem Sections
+%
+
+\newcommand{\enterProblemHeader}[1]{
+    \nobreak\extramarks{}{El problema \arabic{#1} continúa en la siguiente página\ldots}\nobreak{}
+    \nobreak\extramarks{Problema \arabic{#1}}{El problema \arabic{#1} continúa en la siguiente página\ldots}\nobreak{}
+}
+
+\newcommand{\exitProblemHeader}[1]{
+    \nobreak\extramarks{Problema \arabic{#1}}{El problema \arabic{#1} continúa en la siguiente página\ldots}\nobreak{}
+    \stepcounter{#1}
+    \nobreak\extramarks{Problema \arabic{#1}}{}\nobreak{}
+}
+
+\setcounter{secnumdepth}{0}
+\newcounter{partCounter}
+\newcounter{homeworkProblemCounter}
+\setcounter{homeworkProblemCounter}{1}
+\nobreak\extramarks{Problema \arabic{homeworkProblemCounter}}{}\nobreak{}
+
+%
+% Homework Problema Environment
+%
+% This environment takes an optional argument. When given, it will adjust the
+% Problema counter. This is useful for when the problems given for your
+% assignment aren't sequential. See the last 3 problems of this template for an
+% example.
+%
+\newenvironment{homeworkProblem}[2][-1]{
+    \ifnum#1>0
+        \setcounter{homeworkProblemCounter}{#1}
+    \fi
+    \section{Problema \arabic{homeworkProblemCounter} -- #2}
+    \setcounter{partCounter}{1}
+    \enterProblemHeader{homeworkProblemCounter}
+}{
+    \exitProblemHeader{homeworkProblemCounter}
+}
+
+%
+% Homework Details
+%   - Title
+%   - Due date
+%   - Class
+%   - Section/Time
+%   - Instructor
+%   - Author
+%
+
+\newcommand{\hmwkTitle}{Guía 3 -- Preparación Certamen 2}
+\newcommand{\hmwkDueDate}{13/05/2018}
+\newcommand{\hmwkClass}{Programaci\'on de Computadores}
+\newcommand{\hmwkClassTime}{}
+\newcommand{\hmwkClassInstructor}{}
+\newcommand{\hmwkAuthorName}{\textbf{Gonzalo Fern\'andez C.}}
+
+%
+% Title Page
+%
+
+\title{
+    \vspace{2in}
+    \textmd{\textbf{\hmwkClass \\ \hmwkTitle}}\\
+    \vspace{0.1in}\large{\textit{\hmwkClassInstructor\ \hmwkClassTime}}
+    \vspace{3in}
+}
+
+
+\author{\hmwkAuthorName \\ \texttt{gonzalo.fernandezc@sansano.usm.cl}}
+\date{\hmwkDueDate}
+
+\renewcommand{\part}[1]{\textbf{\arabic{partCounter}. }\stepcounter{partCounter}}
+
+%
+% Various Helper Commands
+%
+
+% Useful for algorithms
+\newcommand{\alg}[1]{\textsc{\bfseries \footnotesize #1}}
+
+% For derivatives
+\newcommand{\deriv}[1]{\frac{\mathrm{d}}{\mathrm{d}x} (#1)}
+
+% For partial derivatives
+\newcommand{\pderiv}[2]{\frac{\partial}{\partial #1} (#2)}
+
+% Integral dx
+\newcommand{\dx}{\mathrm{d}x}
+
+% Alias for the Solution section header
+\newcommand{\solution}{\textbf{\large Solución}}
+
+% Probability commands: Expectation, Variance, Covariance, Bias
+\newcommand{\E}{\mathrm{E}}
+\newcommand{\Var}{\mathrm{Var}}
+\newcommand{\Cov}{\mathrm{Cov}}
+\newcommand{\Bias}{\mathrm{Bias}}
+
+\begin{document}
+
+\begin{titlepage}
+
+\begin{figure}
+\includegraphics[width=0.4\linewidth]{logou} 
+\hfill
+\includegraphics[width=0.4\linewidth]{logodi} 
+\end{figure}
+
+\maketitle
+
+\thispagestyle{empty}
+\end{titlepage}
+
+\begin{homeworkProblem} {Diccionario de la Lengua Española}
+
+    Es sabido que la \textit{Real Academia Española} es la entidad encargada de mantener actualizado el famoso \texttt{Diccionario de la Lengua Española} tanto en su versión oficial (física) como en su versión web, para este último, contrataron a un famoso programador para desarrollar un sistema que permita agregar, editar y borrar las palabras del sitio web. Cuando el programador terminó el sistema, le solicitó a la RAE digitalizar todas las palabras con el fin de poder incluírlas en el sistema, para esto es necesario que las almacenen en la lista \texttt{diccionario}, donde cada tupla contiene una palabra, una lista de sinónimos y el significado de esta:
+
+    \begin{verbatim}
+diccionario = [("advertir", ["prevenir", "avisar"], "Indicar a alguien que sea precavido"),
+               ("educar", ["enseñar", "formar", "instruir"], "Brindar conocimiento a alguien"),
+               ("hermoso", ["precioso", "programación"], "Posee una belleza inmensurable"),
+               ("boleto", ["billete", "ticket"], "Documento que acredita su participación"),
+               ...
+               ]\end{verbatim}
+
+    La RAE realizó correctamente esta digitalización logrando traspasar \textbf{casi} todas las palabras del \texttt{Diccionario de la Lengua Española} al formato solicitado por el desarrollador, cuando lo contactaron para avisarle, este había salido de vacaciones, por lo que no podrá implementar la lista en el sistema hasta el próximo año.\\
+
+    Es por esto que la RAE te ha contratado a ti para implementar la lista en el sistema desarrollado por el programador, para ello, es necesario crear las siguientes funciones: \\
+    
+    \part \textbf{}\texttt{\textbf{lista\_a\_diccionario(diccionario)}}, función que recibe como parámetro la lista que la RAE realizó y retorna un diccionario donde cada llave corresponde a una palabra (incluyendo sinónimos) del diccionario y el valor asociado a esta es el significado de la palabra. Dado que la RAE no logró digitalizar todas las palabras, es posible que para algunos sinónimos no exista una definición dentro de la lista \texttt{diccionario}, para estos casos, basta con asignarle la definición de algún sinónimo de este el cual sí tenga un significado en la lista.
+    \begin{verbatim}
+    >>> lista_a_diccionario(diccionario)
+    >>> {"advertir" : "Indicar a alguien que sea precavido",
+         "prevenir" : "Indicar a alguien que sea precavido",
+         "enseñar" : "Explicar el cómo y por qué un suceso ocurre",
+         "educar" : "Brindar conocimiento a alguien 
+         ...
+         }
+    \end{verbatim} 
+
+    \part \textbf{}\texttt{\textbf{agregar\_palabra(diccionario\_nuevo, palabra, significado)}}, función que recibe un diccionario de palabras (devuelto por la función \texttt{lista\_a\_diccionario}), una palabra y su significado correspondiente, y retorna el diccionario nuevo con la palabra agregada.
+    \begin{verbatim}
+    >>> agregar_palabra(diccionario_nuevo, "informática", ["Estado superior al alcanzado 
+    en la Doctrina Egoísta..."])
+    >>> {"advertir" : "Indicar a alguien que sea precavido",
+         "prevenir" : "Indicar a alguien que sea precavido",
+         "enseñar" : "Explicar el cómo y por qué un suceso ocurre",
+         "educar" : "Brindar conocimiento a alguien 
+         ...
+         "informática" : "Estado superior al alcanzado en la Doctrina Egoísta..."}
+    \end{verbatim} 
+
+    \part \textbf{}\texttt{\textbf{borrar\_palabra(diccionario\_nuevo, palabra)}}, función que recibe un diccionario de palabras (devuelto por la función \texttt{lista\_a\_diccionario}) y una palabra, y retorna el diccionario nuevo con la palabra borrada.
+    \begin{verbatim}
+    >>> borrar_palabra(diccionario_nuevo, "advertir")
+    >>> {
+         "prevenir" : "Indicar a alguien que sea precavido",
+         "enseñar" : "Explicar el cómo y por qué un suceso ocurre",
+         "educar" : "Brindar conocimiento a alguien 
+         ...
+        }
+    \end{verbatim} 
+
+    \part \textbf{}\texttt{\textbf{editar\_palabra(diccionario\_nuevo, palabra)}}, función que recibe un diccionario de palabras (devuelto por la función \texttt{lista\_a\_diccionario}), una palabra y su nuevo significado, y retorna el diccionario nuevo con el significado de la palabra editado.
+    \begin{verbatim}
+    >>> editar_palabra(diccionario_nuevo, "prevenir", "Indicarle a alguien que se ponga 
+    vio'h, más Vivaldi y menos Pavarotti")
+    >>> {
+         "prevenir" : "Indicarle a alguien que se ponga vio'h, más Vivaldi y menos Pavarotti",
+         "enseñar" : "Explicar el cómo y por qué un suceso ocurre",
+         "educar" : "Brindar conocimiento a alguien 
+         ...
+        }
+    \end{verbatim} 
+
+    \solution
+
+\end{homeworkProblem}
+
+\pagebreak
+
+
+\end{document}

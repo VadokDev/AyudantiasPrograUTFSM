@@ -8,17 +8,12 @@
 \usepackage{tikz}
 \usepackage[plain]{algorithm}
 \usepackage{algpseudocode}
-\usepackage{minted}
 \usepackage[spanish]{babel}
-\usepackage[utf8]{inputenc} %Codificacion utf-8
+\usepackage[utf8]{inputenc} 
 \usepackage{caption}
 \usepackage{graphicx} 
 
 \usetikzlibrary{automata,positioning}
-
-%
-% Basic Document Settings
-%
 
 \topmargin=-0.45in
 \evensidemargin=0in
@@ -187,9 +182,7 @@
 
     Cierto día llegó el \texttt{VicePresidente Ejecutivo de McDonald's}, con una interesante solicitud, diseñar la lógica de uno de sus cajeros automáticos, dado que todos están de vacaciones, te tocó realizar este trabajo a ti.\\
 
-    La idea es la siguiente, el cliente podría pedir entre \texttt{papas fritas, bebidas y hambuerguesas}, además, estos traían ciertos descuentos en caso de hacer ciertas combinaciones, por cada \texttt{bebida y hamburguesa} compradas juntas, se realiza un descuento de \$100 pesos en el precio final, del mismo modo, por cada \texttt{bebida y papas fritas} que el cliente compra, se realiza un descuento de \$200 en el precio final, si el cliente compra \texttt{papas fritas y hamburguesas}, en caso de luego comprar una \texttt{bebida}, esta tendrá un descuento del 50\%.\\
-
-    Los precios son los siguientes:
+    La idea es la siguiente, el cliente podría pedir entre \texttt{papas fritas, bebidas y hambuerguesas}, además, estos traían ciertos descuentos en caso de hacer ciertas combinaciones, por cada \texttt{bebida y hamburguesa} compradas juntas, se realiza un descuento de \$100 pesos en el precio final, del mismo modo, por cada \texttt{bebida y papas fritas} que el cliente compra, se realiza un descuento de \$200 en el precio final, si el cliente compra \texttt{papas fritas y hamburguesas}, en caso de luego comprar una \texttt{bebida}, esta tendrá un descuento del 50\% (reflejado al momento de calcular el precio final). A continuación, los precios de cada producto:
 
     \begin{center}
     \begin{table}[!htb]
@@ -210,26 +203,30 @@
     \centering
     \begin{tabular}{|c|l|l|} \hline
     Cantidad & Producto & Total \\ \hline
-    5 & \texttt{Papas Fritas} & \$5.000 \\
-    5 & \texttt{Bebida} & \$5.000  \\
-    3 & \texttt{Hamburguesa} & \$3.000 \\ \hline
-    & Descuentos & \$1.000 \\
-    & Total Final: & \$7.000\\ \hline
+    3 & \texttt{Papas Fritas} & \$3.000 \\
+    2 & \texttt{Bebida} & \$10.000  \\
+    2 & \texttt{Hamburguesa} & \$4.000 \\ \hline
+    & Descuentos & \$2.700 \\
+    & Total Final: & \$14.300\\ \hline
     \end{tabular}
-    \caption*{Tabla 2. Ejemplo de Detalle de Compra}
+    \caption*{Tabla 2. Ejemplo de Detalle de Compra*}
     \end{table}
     \end{center}
 
-    Realiza un Diagrama de Flujo y un Código Python que realicen la solicitud del VicePresidente Ejecutivo de McDonald's.\\
+    Realiza un \texttt{Diagrama de Flujo} y un \texttt{Código Python} que realicen lo solicitado anteriormente, puedes realizar las suposiciones que consideres necesarias para resolver cualquier posible inconsistencia con el enunciado.\\
 
     \solution
+
+    \vfill
+    \small{*Nota: Para el ejemplo anterior, se asume que el orden en que se compraron las cosas fue papas fritas -- bebida (\$-200) -- papas fritas -- hamburguesa -- bebida (\$-2500) -- hamburguesa -- papas fritas.}
+
 
 \end{homeworkProblem}
 
 \pagebreak
 
 \begin{homeworkProblem} {PyTube}
-    La famosa plataforma de videos \texttt{PyTube} contrató una enorma cantidad de filósofos, humanistas, raperos y un matemático para realizar un estúdio acerca de cómo aumentar la cantidad de tiempo que invierte una persona interactuando con su plataforma con la finalidad de aumentar la distribución de anuncios y así monetizar más aún sus visitas.\\
+    La famosa plataforma de videos \texttt{PyTube} contrató una enorme cantidad de filósofos, humanistas, raperos y un matemático para realizar un estúdio acerca de cómo aumentar la cantidad de tiempo que invierte una persona interactuando con su plataforma con la finalidad de aumentar la distribución de anuncios y así monetizar más aún sus visitas.\\
 
     Luego de años de investigación y muchos despidos, el matemático descubrió que mientras mayor sea el \texttt{rango} del conjunto de visitas de los videos de la plataforma, mayor es el tiempo que una persona invertirá interactuando con esta.\\
 

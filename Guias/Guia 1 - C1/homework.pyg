@@ -1,0 +1,22 @@
+    #include <iostream>
+    using namespace std;
+
+    int main()
+    {
+       int a;
+       cout << "Ingresa un numero: ";
+       cin >> a;
+
+       switch ( a ) {
+          case 10:
+             cout << "hola\n";
+             break;
+          case 20:
+             cout << "chao\n";
+             break;
+          default:
+             cout << "hola y chao\n";
+             break;
+       }
+       return 0;
+    }
